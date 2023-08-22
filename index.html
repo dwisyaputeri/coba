@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Document</title>
+</head>
+<body>
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+        </div>
+        <form action="{{url_for('predict')}}" method="post">
+            <h3>Klasifikasi Penyakit kanker Payudara</h3>
+            <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">Age</label>
+                <div class="col-sm-10">
+                  <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_Age" name="Age" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">BMI</label>
+                <div class="col-sm-10">
+                    <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_BMI" name="BMI" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">Glucose</label>
+                <div class="col-sm-10">
+                  <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_Glucose"
+                    name="Glucose" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">Insulin</label>
+                <div class="col-sm-10">
+                  <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_Insulin"
+                    name="Insulin" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">HOMA</label>
+                <div class="col-sm-10">
+                  <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_HOMA" name="HOMA" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">Leptin</label>
+                <div class="col-sm-10">
+                  <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_Leptin" name="Leptin" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">Adiponectin</label>
+                <div class="col-sm-10">
+                    <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_Adiponectin" name="Adiponectin" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">Resistin</label>
+                <div class="col-sm-10">
+                    <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_Resistin" name="Resistin" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label style="font-size:20px; color: rgb(0, 0, 0); font-family:Cambria;"
+                  class="col-sm-2 col-form-label text-end">MCP1</label>
+                <div class="col-sm-10">
+                    <input type="text" style="color: rgb(0, 0, 0);" class="form-control" id="id_MCP1" name="MCP1" />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" id="identifikasi" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample"
+                    style="background-color: rgb(0, 0, 0); height: 65px;">
+                    <b style="font-size: 25px;">Identifikasi</b>
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact">
+                <div class="container"
+                  style="background-color: rgb(204, 153, 102); padding-right: 0px; padding-left: 0px;">
+                  <div class="info-item d-flex align-items-center" id=""
+                    style="background-color: rgb(204, 153, 102); padding-top: 20px; padding-bottom: 20px;">
+                    <label style="font-size:20px ; font-weight: bold; font-family:Cambria; color: black;"
+                      class="col-form-label text-end">Hasil</label>
+                    <div class="col-sm-1"></div>
+                    <div class="container"
+                      style="background-color: rgb(255, 255, 255); padding-right: 0px; padding-left: 0px;">
+                      <div class="info-item d-flex align-items-center" id="hasilprediksi"
+                        style="background-color: rgb(255, 255, 255); height: 40px; padding-top: 0px; padding-bottom: 0px;">
+                        <center><label style="font-size:20px ; font-weight: bold; font-family:Cambria; color: black;"
+                            class="col-form-label text-end"></label></center>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </form>
+    </div>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+
+        var csrftoken = $("meta[name=csrf-token]").attr("content");
+        $.ajaxSetup({
+          beforeSend: function (xhr, settings) {
+            if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+          },
+        });
+        $("#form-prediksi").submit(function (e) {
+          var form_data = new FormData($("#form-prediksi")[0]);
+          console.log(Array.from(form_data));
+          $.ajax({
+            url: "/prediction/",
+            data: form_data,
+            processData: false,
+            type: "POST",
+            contentType: false,
+            success: function (response) {
+              console.log(response);
+              $('#hasilprediksi').html(response.data);
+            },
+          });
+          e.preventDefault();
+        });
+      </script>
+</body>
+    </html>
